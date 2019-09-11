@@ -1,15 +1,23 @@
-
 <%== link_to_cart.sub('Empty', '0') %>
+
 <% if spree_current_user %>
-<li>
-<%== spree_current_user.username %>
-    <%= link_to "Logout", destroy_spree_user_session_path, method: :delete %>
-    </li>
+  
+  <li>
+     <%= spree_current_user.username %>
+  </li>
+  
+  <li>
+  <%= link_to "Log out", logout_path, method: :delete %>
+  </li>
+
 <% else %>
+
   <li>
-    <%= link_to "Login", new_spree_user_session_path %>
+  <%= link_to "Login", new_spree_user_session_path %>
   </li>
+
   <li>
-    <%= link_to "Register", new_spree_user_registration_path %>
+  <%= link_to "Register", new_spree_user_registration_path %>
   </li>
+  
 <% end %>
